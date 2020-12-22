@@ -2,23 +2,34 @@
 layout: about
 title: about
 permalink: /
-description: <a href="#">Affiliations</a>. Address. Contacts. Moto. Etc.
+description: Ph.D. Candidate at <a href="https://www.parisschoolofeconomics.eu/en/collodel-umberto/"> Paris School of Economics </a>
 
 profile:
   align: right
   image: prof_pic.jpg
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>48 Boulevard Jourdan Office R-01</p>
+    <p>Paris, France 75014</p>
 
-news: true  # includes a list of news items
+news: false  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com){:target="\_blank"}. You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am currently writing my PhD under the supervision of <a href="https://www.parisschoolofeconomics.eu/en/benassy-quere-agnes/"> Agn&egrave;s B&eacute;nassy-Qu&eacute;r&eacute;.</a> I also am an External Consultant at the Indipendent Evaluation
+Office of the International Monetary Fund, working under the supervision of <a href="https://blogs.imf.org/bloggers/prakash-loungani/"> Prakash Loungani.</a>
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Earlier I have been a Ph.D. Summer Intern in the same division at the International Monetary Fund and
+a Teaching Assistant at Paris 1 Panth&eacute;on-Sorbonne.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/){:target="\_blank"} and [Academicons](https://jpswalsh.github.io/academicons/){:target="\_blank"}, like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My research interests lie at the intersection between macroeconomic forecasting and financial crises. I am particularly interested in the application of new techniques coming from the field of Big Data for the ex-ante forecasting and ex-post identification of macroeconomic crises.
+
+Outside my research I love exercising, travel and reading fiction. For a glimpse of my adventures visit the Personal section.
+
+
+
+
+Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com){:target="\_blank"}. 
+
+Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+
