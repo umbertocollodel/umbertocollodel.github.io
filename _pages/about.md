@@ -17,15 +17,17 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 I am currently writing my PhD under the supervision of <a href="https://www.parisschoolofeconomics.eu/en/benassy-quere-agnes/"> Agn&egrave;s B&eacute;nassy-Qu&eacute;r&eacute;.</a> I also am an External Consultant at the Indipendent Evaluation
-Office of the International Monetary Fund, working under the supervision of <a href="https://blogs.imf.org/bloggers/prakash-loungani/"> Prakash Loungani.</a>
+Office of the International Monetary Fund, working under the supervision of <a href="https://blogs.imf.org/bloggers/prakash-loungani/"> Prakash Loungani </a> and 
+<a href="https://blogs.imf.org/bloggers/nicoletta-batini/"> Nicoletta Batini.</a>
 
 Earlier I have been a Ph.D. Summer Intern in the same division at the International Monetary Fund and
 a Teaching Assistant at Paris 1 Panth&eacute;on-Sorbonne.
 
 My research interests lie at the intersection between macroeconomic forecasting and financial crises. I am particularly interested in the application of new techniques coming from the field of Big Data for the ex-ante forecasting and ex-post identification of macroeconomic crises.
 
-Outside my research I love exercising, travel and reading fiction. For a glimpse of my adventures visit the Personal section.
+You can find a complete CV <a href="assets/pdf/academic_cv.pdf"> here.</a>
 
+Outside my research I love exercising, travel and reading fiction. For a glimpse of my adventures visit the personal section.
 
 
 
