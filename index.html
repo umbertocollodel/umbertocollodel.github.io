@@ -4,168 +4,650 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umberto Collodel - Macroeconomist</title>
+    <meta name="description" content="Macroeconomist specializing in monetary policy, forecasting, and macro-financial linkages using LLMs and modern data science.">
+    
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #ffffff;
+            --bg-alt: #f8f9fa;
+            --border-color: #e1e4e8;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
-            color: #333;
+            position: relative;
+            z-index: 1;
         }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
         h1 {
-            font-size: 2em;
-            margin-bottom: 0.2em;
-            color: #2c3e50;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        h2 {
-            font-size: 1.5em;
-            margin-top: 2em;
-            margin-bottom: 0.5em;
-            color: #2c3e50;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.3em;
-        }
+
         .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 0.5em;
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            opacity: 0.95;
         }
+
         .affiliation {
-            color: #666;
-            margin-bottom: 1.5em;
+            font-size: 1em;
+            opacity: 0.9;
+            margin-bottom: 30px;
         }
-        .links {
-            margin: 1.5em 0;
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .links a {
-            margin-right: 15px;
-            color: #0066cc;
+
+        .social-links a {
+            color: white;
             text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.1);
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
         }
-        .links a:hover {
-            text-decoration: underline;
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        .paper {
-            margin-bottom: 1.5em;
-        }
-        .paper-title {
-            font-weight: 600;
+
+        .social-links i {
             font-size: 1.1em;
-            color: #2c3e50;
         }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 60px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+        }
+
+        /* About Section */
+        .about-content {
+            background: var(--bg-alt);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .research-interests {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .research-interests strong {
+            color: var(--primary-color);
+        }
+
+        /* Paper Cards */
+        .paper-card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paper-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .paper-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .paper-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .jmp-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .paper-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+        }
+
+        .paper-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
         .paper-meta {
-            color: #666;
+            color: var(--text-light);
             font-style: italic;
-            margin: 0.3em 0;
-        }
-        .paper-links a {
-            margin-right: 10px;
-            color: #0066cc;
-            text-decoration: none;
+            margin-bottom: 15px;
             font-size: 0.95em;
         }
-        hr {
-            border: none;
-            border-top: 1px solid #eee;
-            margin: 2em 0;
+
+        .paper-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
-        footer {
-            margin-top: 3em;
-            padding-top: 1em;
-            border-top: 1px solid #eee;
-            color: #666;
+
+        .paper-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--bg-alt);
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: 6px;
             font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .paper-links a:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateX(3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Data Section */
+        .data-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .data-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .data-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: var(--bg-alt);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-alt);
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-top: 60px;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .hero {
+                padding: 60px 20px 40px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .paper-card {
+                padding: 20px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-links a {
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .hero {
+                background: white;
+                color: black;
+            }
+
+            .scroll-top {
+                display: none;
+            }
+
+            .paper-card {
+                break-inside: avoid;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Umberto Collodel</h1>
-    <p class="subtitle"><strong>Macroeconomist | Monetary Policy & Forecasting</strong></p>
-    <p class="affiliation">
-        Ph.D. in International Macroeconomics<br>
-        Paris School of Economics
-    </p>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <!-- Optional: Add your photo here -->
+            <!-- <img src="profile.jpg" alt="Umberto Collodel" class="profile-img"> -->
+            
+            <h1>Umberto Collodel</h1>
+            <p class="subtitle">Macroeconomist | Monetary Policy & Forecasting</p>
+            <p class="affiliation">
+                Ph.D. in International Macroeconomics<br>
+                Paris School of Economics
+            </p>
 
-    <div class="links">
-        <a href="CV_Collodel.pdf">CV (PDF)</a>
-        <a href="https://scholar.google.com/citations?user=YOURID">Google Scholar</a>
-        <a href="https://github.com/yourusername">GitHub</a>
-        <a href="https://www.linkedin.com/in/umberto-collodel-ph-d-7a063a116/">LinkedIn</a>
-    </div>
-
-    <hr>
-
-    <h2>About</h2>
-    <p>
-        I am a macroeconomist specializing in monetary policy, forecasting, and macro-financial linkages. 
-        My research combines traditional empirical methods with modern machine learning approaches, 
-        particularly Large Language Models, to analyze central bank communication and develop improved forecasting tools.
-    </p>
-    <p>
-        I have research experience at the Paris School of Economics, International Monetary Fund, OECD, 
-        and Central Bank of Malta.
-    </p>
-    <p>
-        <strong>Research Interests:</strong> Monetary Policy Communication, Forecasting, LLMs in Economics, 
-        Financial Crises, Capital Flows
-    </p>
-
-    <h2>Job Market Paper</h2>
-    <div class="paper">
-        <div class="paper-title">Interpreting the Interpreter: Can We Model post-ECB Conferences Volatility with LLM Agents?</div>
-        <p>
-            This paper investigates whether Large Language Model agents can capture market volatility 
-            following ECB press conferences, offering new insights into the information content of 
-            central bank communication.
-        </p>
-        <div class="paper-links">
-            <a href="https://arxiv.org/pdf/2508.13635v1">PDF</a>
-            <a href="https://github.com/yourusername/ecb-llm">Code</a>
+            <div class="social-links">
+                <a href="CV_Collodel.pdf" target="_blank">CV</a>
+                <a href="https://scholar.google.com/citations?user=YOURID" target="_blank">Google Scholar</a>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/umberto-collodel-ph-d-7a063a116/" target="_blank">LinkedIn</a>
+                <a href="mailto:your.email@domain.com">Email</a>
+            </div>
         </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-content">
+                <p>
+                    I am a macroeconomist specializing in monetary policy, forecasting, and macro-financial linkages. 
+                    My research combines traditional empirical methods with modern machine learning approaches, 
+                    particularly Large Language Models, to analyze central bank communication and develop improved forecasting tools.
+                </p>
+                <p style="margin-top: 15px;">
+                    I have research experience at the <strong>Paris School of Economics</strong>, <strong>International Monetary Fund</strong>, 
+                    <strong>OECD</strong>, and <strong>Central Bank of Malta</strong>.
+                </p>
+                <div class="research-interests">
+                    <strong>Research Interests:</strong> Monetary Policy Communication • Forecasting • LLMs in Economics • 
+                    Financial Crises • Capital Flows
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Market Paper -->
+        <section id="jmp">
+            <h2>Job Market Paper</h2>
+            <div class="paper-card">
+                <span class="jmp-badge">Job Market Paper</span>
+                <div class="paper-title">
+                    Interpreting the Interpreter: Can We Model post-ECB Conferences Volatility with LLM Agents?
+                </div>
+                <p class="paper-description">
+                    This paper investigates whether Large Language Model agents can capture market volatility 
+                    following ECB press conferences, offering new insights into the information content of 
+                    central bank communication. Using advanced natural language processing techniques, I demonstrate 
+                    how AI can parse nuanced monetary policy signals that drive financial market reactions.
+                </p>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/pdf/2508.13635v1" target="_blank">PDF</a>
+                    <a href="https://github.com/yourusername/ecb-llm" target="_blank">Code</a>
+                    <a href="#" target="_blank">Slides</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications & Working Papers -->
+        <section id="research">
+            <h2>Publications & Working Papers</h2>
+            
+            <div class="paper-card">
+                <div class="paper-title">
+                    Market-based Monetary Policy Uncertainty Shocks in the Euro Area
+                </div>
+                <p class="paper-meta">Central Bank of Malta Working Paper 01/2025</p>
+                <p class="paper-description">
+                    Analyzing how market-based measures of monetary policy uncertainty affect economic outcomes 
+                    in the Euro Area, with implications for policy communication strategies.
+                </p>
+                <div class="paper-links">
+                    <a href="https://www.centralbankmalta.org/site/Publications/Economic%20Research/2025/WP-01-2025.pdf" target="_blank">PDF</a>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    Crumbs Make a Loaf: Using Online Product Prices to Nowcast Inflation
+                </div>
+                <p class="paper-meta">Work in Progress</p>
+                <p class="paper-description">
+                    Leveraging high-frequency online price data to improve real-time inflation forecasting, 
+                    with applications for central bank decision-making and economic surveillance.
+                </p>
+            </div>
+        </section>
+
+        <!-- Ph.D. Thesis -->
+        <section id="thesis">
+            <h2>Ph.D. Thesis</h2>
+            <div class="paper-card">
+                <div class="paper-title">
+                    The Interplay between Macroeconomic Forecasting, Financial Crises and Complexity
+                </div>
+                <p class="paper-meta">Paris School of Economics, 2023</p>
+                <p class="paper-description">
+                    This dissertation explores how complexity economics can enhance our understanding of 
+                    macroeconomic forecasting failures during financial crises, with particular attention 
+                    to nonlinear dynamics and systemic risk.
+                </p>
+                <div class="paper-links">
+                    <a href="https://theses.hal.science/tel-04360051v1/file/COLLODEL.pdf" target="_blank">Full Thesis</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data & Code -->
+        <section id="data">
+            <h2>Data & Code</h2>
+            <div class="data-card">
+                <h3>The Complex Crises Database</h3>
+                <p style="margin: 15px 0;">
+                    A comprehensive dataset on financial and economic crises, providing researchers with 
+                    detailed information on crisis episodes, their characteristics, and macroeconomic outcomes.
+                </p>
+                <div class="paper-links">
+                    <a href="https://dataverse.harvard.edu/dataverse/complexcrises" target="_blank">Harvard Dataverse</a>
+                    <a href="https://github.com/yourusername/complex-crises" target="_blank">Documentation</a>
+                </div>
+            </div>
+
+            <p style="margin-top: 30px; color: var(--text-light);">
+                Replication materials for all papers are available on 
+                <a href="https://github.com/yourusername" style="color: var(--accent-color); text-decoration: none;">GitHub</a>
+            </p>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:your.email@domain.com">your.email@domain.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div>
+                        <strong>Location</strong><br>
+                        Paris, France
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <h2>Publications & Working Papers</h2>
-    
-    <div class="paper">
-        <div class="paper-title">Market-based Monetary Policy Uncertainty Shocks in the Euro Area</div>
-        <div class="paper-meta">Central Bank of Malta Working Paper 01/2025</div>
-        <div class="paper-links">
-            <a href="https://www.centralbankmalta.org/site/Publications/Economic%20Research/2025/WP-01-2025.pdf">PDF</a>
-        </div>
-    </div>
-
-    <div class="paper">
-        <div class="paper-title">Crumbs Make a Loaf - Using Online Product Prices to Nowcast Inflation</div>
-        <div class="paper-meta">Work in Progress</div>
-    </div>
-
-    <h2>Ph.D. Thesis</h2>
-    <div class="paper">
-        <div class="paper-title">The Interplay between Macroeconomic Forecasting, Financial Crises and Complexity</div>
-        <div class="paper-meta">Paris School of Economics, 2023</div>
-        <div class="paper-links">
-            <a href="https://theses.hal.science/tel-04360051v1/file/COLLODEL.pdf">PDF</a>
-        </div>
-    </div>
-
-    <h2>Data & Code</h2>
-    <div class="paper">
-        <div class="paper-title">The Complex Crises Database</div>
-        <p>A comprehensive dataset on financial and economic crises</p>
-        <div class="paper-links">
-            <a href="https://dataverse.harvard.edu/dataverse/complexcrises">Harvard Dataverse</a>
-        </div>
-    </div>
-
-    <h2>Contact</h2>
-    <p>
-        <strong>Email:</strong> your.email@domain.com<br>
-        <strong>Location:</strong> Paris, France
-    </p>
-
+    <!-- Footer -->
     <footer>
-        Last updated: October 2025
+        <p>© 2025 Umberto Collodel | Last updated: October 2025</p>
+        <p style="margin-top: 10px; font-size: 0.85em;">
+            Built with ❤️ and minimal JavaScript
+        </p>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
+
