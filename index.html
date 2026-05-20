@@ -134,15 +134,31 @@
         }
  
         .hero-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+            padding-top: 8px;
+        }
+
+        .hero-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border);
+            display: block;
+        }
+
+        .hero-meta-text {
             text-align: right;
             font-size: 0.85em;
             color: var(--ink-muted);
             line-height: 1.8;
-            padding-top: 8px;
             font-weight: 300;
         }
  
-        .hero-meta strong {
+        .hero-meta-text strong {
             display: block;
             color: var(--ink);
             font-weight: 500;
@@ -207,6 +223,37 @@
             top: 0; left: 0;
             width: 100%; height: 3px;
             border-radius: 10px 10px 0 0;
+        }
+
+        /* ── PAPER CARD WITH FIGURE ── */
+        .paper-card-inner {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .paper-figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding-top: 4px;
+        }
+
+        .paper-figure img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            display: block;
+        }
+
+        .paper-figure figcaption {
+            font-size: 0.75em;
+            color: var(--ink-muted);
+            text-align: center;
+            line-height: 1.4;
+            font-style: italic;
         }
  
         .badge {
@@ -345,10 +392,13 @@
         /* ── RESPONSIVE ── */
         @media (max-width: 640px) {
             .hero-inner { grid-template-columns: 1fr; gap: 28px; }
-            .hero-meta { text-align: left; }
+            .hero-meta { align-items: flex-start; }
+            .hero-meta-text { text-align: left; }
             .hero-name { font-size: 2.2em; }
             h2 { font-size: 1.4em; }
             .paper-card, .about-block { padding: 20px; }
+            .paper-card-inner { grid-template-columns: 1fr; }
+            .paper-figure { display: none; }
         }
     </style>
 </head>
@@ -377,14 +427,17 @@
             </nav>
         </div>
         <div class="hero-meta">
-            <strong>Experience</strong>
-            <div><span class="exp-dot" style="background:#534AB7"></span>Central Bank of Malta</div>
-            <div><span class="exp-dot" style="background:#185FA5"></span>IMF · Various Roles</div>
-            <div><span class="exp-dot" style="background:#1D9E75"></span>OECD · External consultant</div>
-            <br>
-            <strong>Education</strong>
-            <div>PhD · Paris School of Economics</div>
-            <div style="font-size:0.9em; margin-top:2px;">Supervisor: Agnès Bénassy-Quéré</div>
+            <img src="photo.jpg" alt="Umberto Collodel" class="hero-photo">
+            <div class="hero-meta-text">
+                <strong>Experience</strong>
+                <div><span class="exp-dot" style="background:#534AB7"></span>Central Bank of Malta</div>
+                <div><span class="exp-dot" style="background:#185FA5"></span>IMF · Various Roles</div>
+                <div><span class="exp-dot" style="background:#1D9E75"></span>OECD · External consultant</div>
+                <br>
+                <strong>Education</strong>
+                <div>PhD · Paris School of Economics</div>
+                <div style="font-size:0.9em; margin-top:2px;">Supervisor: Agnès Bénassy-Quéré</div>
+            </div>
         </div>
     </div>
 </header>
@@ -411,6 +464,7 @@
     <section id="research">
         <h2>Publications & Working Papers</h2>
  
+        <!-- OIS paper — no figure -->
         <div class="paper-card">
             <div class="paper-card-accent" style="background:#D4537E"></div>
             <span class="badge badge-published">Accepted · Journal of Macroeconomics</span>
@@ -425,32 +479,51 @@
             </div>
         </div>
 
+        <!-- Political pressure — with figure -->
         <div class="paper-card">
             <div class="paper-card-accent" style="background:#2a52a0"></div>
-            <span class="badge badge-wip">Working Paper</span>
-            <div class="paper-title">Quantifying Political Pressure on Central Banks: When Politicians Talk, Do Markets Listen?</div>
-            <p class="paper-meta">with Michela Baretti (Universidad de Alicante) and Jacopo Zacché (Central Bank of Malta)</p>
-            <p class="paper-desc">
-                We provide the first long-run systematic evidence on whether financial markets price political pressure on the Federal Reserve as a signal of future monetary policy. Using approximately four decades of Reuters newswire articles from 1988 to 2025, classified by an open-weight LLM ensemble into dovish and hawkish pressure, we estimate the daily response of interest rate expectations across the term structure, the US dollar, inflation compensation, and market volatility. Dovish pressure lowers near-term rate expectations by roughly one basis point per event — equivalent to a four-percent increase in the implied probability of a rate cut at the next FOMC meeting — with the effect decaying monotonically and vanishing beyond the three-month horizon. Hawkish pressure has no detectable effect. The response is driven entirely by presidential commentary, accompanied by dollar depreciation, with stable inflation compensation and market volatility. Excluding the Trump presidencies does not weaken the estimate, ruling out the possibility that the result is confined to an idiosyncratic recent episode. We interpret the pattern as markets pricing anticipated monetary accommodation, rather than a credibility tax on the nominal anchor.
-            </p>
-            <div class="paper-links">
-                <a href="Political_pressure_and_markets_reaction.pdf" target="_blank">PDF</a>
+            <div class="paper-card-inner">
+                <div>
+                    <span class="badge badge-wip">Working Paper</span>
+                    <div class="paper-title">Quantifying Political Pressure on Central Banks: When Politicians Talk, Do Markets Listen?</div>
+                    <p class="paper-meta">with Michela Baretti (Universidad de Alicante) and Jacopo Zacché (Central Bank of Malta)</p>
+                    <p class="paper-desc">
+                        We provide the first long-run systematic evidence on whether financial markets price political pressure on the Federal Reserve as a signal of future monetary policy. Using approximately four decades of Reuters newswire articles from 1988 to 2025, classified by an open-weight LLM ensemble into dovish and hawkish pressure, we estimate the daily response of interest rate expectations across the term structure, the US dollar, inflation compensation, and market volatility. Dovish pressure lowers near-term rate expectations by roughly one basis point per event — equivalent to a four-percent increase in the implied probability of a rate cut at the next FOMC meeting — with the effect decaying monotonically and vanishing beyond the three-month horizon. Hawkish pressure has no detectable effect. The response is driven entirely by presidential commentary, accompanied by dollar depreciation, with stable inflation compensation and market volatility. Excluding the Trump presidencies does not weaken the estimate, ruling out the possibility that the result is confined to an idiosyncratic recent episode. We interpret the pattern as markets pricing anticipated monetary accommodation, rather than a credibility tax on the nominal anchor.
+                    </p>
+                    <div class="paper-links">
+                        <a href="Political_pressure_and_markets_reaction.pdf" target="_blank">PDF</a>
+                    </div>
+                </div>
+                <figure class="paper-figure">
+                    <img src="coef_drivers_ffc.png" alt="Impact of dovish and hawkish pressure on federal funds futures">
+                    <figcaption>Effect of dovish vs. hawkish pressure on fed funds futures across maturities</figcaption>
+                </figure>
             </div>
         </div>
  
+        <!-- Interpreter — with figure -->
         <div class="paper-card">
             <div class="paper-card-accent" style="background:#534AB7"></div>
-            <span class="badge badge-wip">Working Paper</span>
-            <div class="paper-title">Interpreting the Interpreter: Can We Model post-ECB Conferences Volatility with LLM Agents?</div>
-            <p class="paper-desc">
-                Traditional high-frequency identification of monetary policy communication effects operates ex-post, precluding evaluation of alternative strategies before publication. We introduce an ex-ante framework that simulates heterogeneous market reactions to central bank communication before release. Our methodology employs LLMs to construct an agent-based simulation of 30 synthetic traders with heterogeneous risk preferences, cognitive biases, and interpretive styles. These agents process ECB press conference transcripts and forecast Euro interest rate swap rates across 3-month, 2-year, and 10-year maturities. Cross-sectional forecast dispersion provides a model-based measure of market disagreement, validated against realized OIS volatility. Analysing 283 ECB press conferences (June 1998–April 2025), we document Spearman correlations of approximately 0.5 between simulated and realized disagreement, rising to 0.6 under iterative prompt optimization — robust across prompting strategies, temporally stable, and significantly outperforming simple language complexity scores.
-            </p>
-            <div class="paper-links">
-                <a href="https://arxiv.org/pdf/2508.13635" target="_blank">PDF</a>
-                <a href="https://github.com/umbertocollodel/MPU_Shocks_Euro_Area" target="_blank">Code</a>
+            <div class="paper-card-inner">
+                <div>
+                    <span class="badge badge-wip">Working Paper</span>
+                    <div class="paper-title">Interpreting the Interpreter: Can We Model post-ECB Conferences Volatility with LLM Agents?</div>
+                    <p class="paper-desc">
+                        Traditional high-frequency identification of monetary policy communication effects operates ex-post, precluding evaluation of alternative strategies before publication. We introduce an ex-ante framework that simulates heterogeneous market reactions to central bank communication before release. Our methodology employs LLMs to construct an agent-based simulation of 30 synthetic traders with heterogeneous risk preferences, cognitive biases, and interpretive styles. These agents process ECB press conference transcripts and forecast Euro interest rate swap rates across 3-month, 2-year, and 10-year maturities. Cross-sectional forecast dispersion provides a model-based measure of market disagreement, validated against realized OIS volatility. Analysing 283 ECB press conferences (June 1998–April 2025), we document Spearman correlations of approximately 0.5 between simulated and realized disagreement, rising to 0.6 under iterative prompt optimization — robust across prompting strategies, temporally stable, and significantly outperforming simple language complexity scores.
+                    </p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/pdf/2508.13635" target="_blank">PDF</a>
+                        <a href="https://github.com/umbertocollodel/MPU_Shocks_Euro_Area" target="_blank">Code</a>
+                    </div>
+                </div>
+                <figure class="paper-figure">
+                    <img src="p1_fig4_sd_timeseries.png" alt="Simulated vs. realised OIS disagreement">
+                    <figcaption>Simulated agent disagreement vs. realised OIS volatility across ECB conferences</figcaption>
+                </figure>
             </div>
         </div>
  
+        <!-- Crumbs — no figure -->
         <div class="paper-card">
             <div class="paper-card-accent" style="background:#1D9E75"></div>
             <span class="badge badge-wip">Work in Progress</span>
@@ -466,13 +539,21 @@
         <h2>PhD Thesis</h2>
         <div class="paper-card">
             <div class="paper-card-accent" style="background:#888780"></div>
-            <div class="paper-title">The Interplay between Macroeconomic Forecasting, Financial Crises and Complexity</div>
-            <p class="paper-meta">Paris School of Economics, 2022 · Supervisor: Prof. Agnès Bénassy-Quéré</p>
-            <p class="paper-desc">
-                Three chapters on macroeconomic forecasting and financial crises. Chapter 3 shows that early warning systems for external crises fare relatively well in terms of forecasting performance, comparing global and domestic indicators and analysing output losses from missed versus predicted crises. Chapter 4 evaluates short-term forecasts of economic activity by major institutions and the private sector, examining how forecast errors correlate to the business cycle and touching on the political dimension of forecasting. Chapter 5 introduces a novel dataset of IMF archival documents — compiled via a manual dictionary and term-frequency approach — to measure how crisis discourse has evolved across the Fund's membership over decades.
-            </p>
-            <div class="paper-links">
-                <a href="https://theses.hal.science/tel-04360051v1/file/COLLODEL.pdf" target="_blank">Full Thesis (PDF)</a>
+            <div class="paper-card-inner">
+                <div>
+                    <div class="paper-title">The Interplay between Macroeconomic Forecasting, Financial Crises and Complexity</div>
+                    <p class="paper-meta">Paris School of Economics, 2022 · Supervisor: Prof. Agnès Bénassy-Quéré</p>
+                    <p class="paper-desc">
+                        Three chapters on macroeconomic forecasting and financial crises. Chapter 3 shows that early warning systems for external crises fare relatively well in terms of forecasting performance, comparing global and domestic indicators and analysing output losses from missed versus predicted crises. Chapter 4 evaluates short-term forecasts of economic activity by major institutions and the private sector, examining how forecast errors correlate to the business cycle and touching on the political dimension of forecasting. Chapter 5 introduces a novel dataset of IMF archival documents — compiled via a manual dictionary and term-frequency approach — to measure how crisis discourse has evolved across the Fund's membership over decades.
+                    </p>
+                    <div class="paper-links">
+                        <a href="https://theses.hal.science/tel-04360051v1/file/COLLODEL.pdf" target="_blank">Full Thesis (PDF)</a>
+                    </div>
+                </div>
+                <figure class="paper-figure">
+                    <img src="phd_thesis.png" alt="Early warning system performance">
+                    <figcaption>Key figure from the thesis</figcaption>
+                </figure>
             </div>
         </div>
     </section>
@@ -528,14 +609,37 @@
 </div>
  
 <footer>
-    <p>© 2025 Umberto Collodel &nbsp;·&nbsp; Last updated: 2025</p>
+    <p>© <span id="copy-year"></span> Umberto Collodel &nbsp;·&nbsp; Last updated: <span id="last-updated"></span></p>
 </footer>
  
 <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
  
 <script>
+    const now = new Date();
+    document.getElementById('copy-year').textContent = now.getFullYear();
+    document.getElementById('last-updated').textContent = now.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+
     const btn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
         btn.classList.toggle('visible', window.pageYOffset > 300);
     });
-    btn.addEventListener('click', () => window
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+ 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+ 
+    document.querySelectorAll('section, .paper-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>
