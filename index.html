@@ -399,10 +399,10 @@
                 At the <strong>Central Bank of Malta</strong>, I prepare briefing materials for the Governor ahead of ECB Governing Council meetings and conduct research on monetary policy transmission, inflation dynamics, and market reactions to central bank announcements — providing direct exposure to eurozone policy implementation in real time.
             </p>
             <p>
-                My current research spans three areas: measuring how ECB announcements generate market uncertainty through a novel OIS-based approach; classifying political pressure on the Federal Reserve using LLMs to study its effect on asset prices and Fed credibility; and nowcasting Maltese inflation from high-frequency web-scraped retail prices.
+                My current research spans three areas: measuring how ECB announcements generate market uncertainty and how to simulate these market dynamics; the effect of political pressure on central banks on markets' expectations; and nowcasting Maltese inflation from high-frequency web-scraped retail prices.
             </p>
             <p>
-                Prior to joining the CBM, I worked at the <strong>IMF</strong> on emerging market economies, sovereign debt, and capital flows, and at the <strong>OECD</strong> as an external consultant on economic policy analysis. My PhD at the <strong>Paris School of Economics</strong> (2022, supervised by Prof. Agnès Bénassy-Quéré) examined financial crises prediction, institutional forecast errors, and a novel textual dataset of IMF archival documents.
+                Prior to joining the CBM, I worked at the <strong>IMF</strong> on emerging market economies, sovereign debt, and capital flows, and at the <strong>OECD</strong> as an external consultant on economic policy analysis. My PhD at the <strong>Paris School of Economics</strong> (2022, supervised by Prof. Agnès Bénassy-Quéré) examined financial crises prediction, institutional forecast errors, and built a novel textual dataset of IMF archival documents.
             </p>
         </div>
     </section>
@@ -422,6 +422,19 @@
             <div class="paper-links">
                 <a href="https://www.centralbankmalta.org/site/Publications/Economic%20Research/2025/WP-01-2025.pdf" target="_blank">PDF</a>
                 <a href="https://github.com/umbertocollodel/MPU_Shocks_Euro_Area" target="_blank">Code</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <div class="paper-card-accent" style="background:#2a52a0"></div>
+            <span class="badge badge-wip">Working Paper</span>
+            <div class="paper-title">Quantifying Political Pressure on Central Banks: When Politicians Talk, Do Markets Listen?</div>
+            <p class="paper-meta">with Michela Baretti (Universidad de Alicante) and Jacopo Zacché (Central Bank of Malta)</p>
+            <p class="paper-desc">
+                We provide the first long-run systematic evidence on whether financial markets price political pressure on the Federal Reserve as a signal of future monetary policy. Using approximately four decades of Reuters newswire articles from 1988 to 2025, classified by an open-weight LLM ensemble into dovish and hawkish pressure, we estimate the daily response of interest rate expectations across the term structure, the US dollar, inflation compensation, and market volatility. Dovish pressure lowers near-term rate expectations by roughly one basis point per event — equivalent to a four-percent increase in the implied probability of a rate cut at the next FOMC meeting — with the effect decaying monotonically and vanishing beyond the three-month horizon. Hawkish pressure has no detectable effect. The response is driven entirely by presidential commentary, accompanied by dollar depreciation, with stable inflation compensation and market volatility. Excluding the Trump presidencies does not weaken the estimate, ruling out the possibility that the result is confined to an idiosyncratic recent episode. We interpret the pattern as markets pricing anticipated monetary accommodation, rather than a credibility tax on the nominal anchor.
+            </p>
+            <div class="paper-links">
+                <a href="Political_pressure_and_markets_reaction.pdf" target="_blank">PDF</a>
             </div>
         </div>
  
@@ -525,23 +538,4 @@
     window.addEventListener('scroll', () => {
         btn.classList.toggle('visible', window.pageYOffset > 300);
     });
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
- 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.style.opacity = '1';
-                e.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
- 
-    document.querySelectorAll('section, .paper-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(16px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(el);
-    });
-</script>
-</body>
-</html>
+    btn.addEventListener('click', () => window
